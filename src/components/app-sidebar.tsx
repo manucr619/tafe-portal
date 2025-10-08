@@ -35,9 +35,9 @@ import {
 
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "TAFE User",
+    email: "user@tafe.edu.au",
+    avatar: "/avatars/tafe-user.jpg",
   },
   navMain: [
     {
@@ -46,69 +46,69 @@ const data = {
       icon: IconDashboard,
     },
     {
-      title: "Lifecycle",
+      title: "Courses",
       url: "#",
       icon: IconListDetails,
     },
     {
-      title: "Analytics",
+      title: "Students",
       url: "#",
       icon: IconChartBar,
     },
     {
-      title: "Projects",
+      title: "Programs",
       url: "#",
       icon: IconFolder,
     },
     {
-      title: "Team",
+      title: "Faculty",
       url: "#",
       icon: IconUsers,
     },
   ],
   navClouds: [
     {
-      title: "Capture",
-      icon: IconCamera,
+      title: "Enrollments",
+      icon: IconFileDescription,
       isActive: true,
       url: "#",
       items: [
         {
-          title: "Active Proposals",
+          title: "New Applications",
           url: "#",
         },
         {
-          title: "Archived",
+          title: "Processing",
           url: "#",
         },
       ],
     },
     {
-      title: "Proposal",
-      icon: IconFileDescription,
+      title: "Assessments",
+      icon: IconFileWord,
       url: "#",
       items: [
         {
-          title: "Active Proposals",
+          title: "Pending Review",
           url: "#",
         },
         {
-          title: "Archived",
+          title: "Completed",
           url: "#",
         },
       ],
     },
     {
-      title: "Prompts",
+      title: "Resources",
       icon: IconFileAi,
       url: "#",
       items: [
         {
-          title: "Active Proposals",
+          title: "Learning Materials",
           url: "#",
         },
         {
-          title: "Archived",
+          title: "Training Guides",
           url: "#",
         },
       ],
@@ -133,17 +133,17 @@ const data = {
   ],
   documents: [
     {
-      name: "Data Library",
+      name: "Course Catalog",
       url: "#",
       icon: IconDatabase,
     },
     {
-      name: "Reports",
+      name: "Student Reports",
       url: "#",
       icon: IconReport,
     },
     {
-      name: "Word Assistant",
+      name: "Assessment Tools",
       url: "#",
       icon: IconFileWord,
     },
@@ -162,7 +162,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             >
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
+                <span className="text-base font-semibold">TAFE</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
