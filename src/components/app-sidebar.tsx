@@ -4,7 +4,6 @@ import * as React from "react"
 import {
   IconTruck,
   IconReceipt,
-  IconFileCheck,
   IconChartBar,
   IconFileInvoice,
   IconDashboard,
@@ -52,11 +51,6 @@ const data = {
       title: "Invoice Update",
       url: "/dashboard/invoice-update",
       icon: IconFileInvoice,
-    },
-    {
-      title: "New Parts Confirmation",
-      url: "/dashboard/new-parts",
-      icon: IconFileCheck,
     },
   ],
   navClouds: [

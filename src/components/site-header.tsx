@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { SidebarTrigger } from "@/components/ui/sidebar"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function SiteHeader() {
   return (
@@ -13,16 +13,7 @@ export function SiteHeader() {
         />
         <h1 className="text-base font-medium">TAFE Portal</h1>
         <div className="ml-auto flex items-center gap-2">
-          <Button variant="ghost" asChild size="sm" className="hidden sm:flex">
-            <a
-              href="https://github.com/manucr619/tafe-portal"
-              rel="noopener noreferrer"
-              target="_blank"
-              className="dark:text-foreground"
-            >
-              TAFE Portal
-            </a>
-          </Button>
+          <ThemeToggle />
         </div>
       </div>
     </header>

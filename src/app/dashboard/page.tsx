@@ -33,9 +33,6 @@ export default function Page() {
               {/* Welcome Banner */}
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tight">Welcome to TAFE Supplier Portal</h1>
-                <p className="text-muted-foreground">
-                  Portal URL: https://wb01.tafechannel.com | Vendor Dashboard
-                </p>
               </div>
 
               {/* Stats Cards */}
