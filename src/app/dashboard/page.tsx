@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { deliveryRequests, dashboardStats, getStatusColor } from "./mock-data"
 import { IconTruck, IconFileInvoice, IconAlertCircle, IconStar } from "@tabler/icons-react"
+import { DashboardActivityChart } from "@/components/dashboard-activity-chart"
 
 export default function Page() {
   // Get recent DRs (last 5)
@@ -91,6 +92,9 @@ export default function Page() {
                   </CardContent>
                 </Card>
               </div>
+
+              {/* Activity Chart */}
+              <DashboardActivityChart />
 
               {/* Recent Activity */}
               <Card>
