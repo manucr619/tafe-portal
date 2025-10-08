@@ -2,25 +2,23 @@
 
 import * as React from "react"
 import {
-  IconCamera,
+  IconTruck,
+  IconReceipt,
+  IconFileCheck,
   IconChartBar,
+  IconFileInvoice,
   IconDashboard,
-  IconDatabase,
-  IconFileAi,
-  IconFileDescription,
-  IconFileWord,
-  IconFolder,
+  IconAlertCircle,
   IconHelp,
-  IconInnerShadowTop,
-  IconListDetails,
   IconReport,
   IconSearch,
   IconSettings,
-  IconUsers,
 } from "@tabler/icons-react"
+import Image from "next/image"
 
 import { NavDocuments } from "@/components/nav-documents"
 import { NavMain } from "@/components/nav-main"
+import { NavCollapsible } from "@/components/nav-collapsible"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
 import {
@@ -35,81 +33,61 @@ import {
 
 const data = {
   user: {
-    name: "TAFE User",
-    email: "user@tafe.edu.au",
-    avatar: "/avatars/tafe-user.jpg",
+    name: "Vendor User",
+    email: "vendor@tafesupplier.com",
+    avatar: "/avatars/vendor-user.jpg",
   },
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
     },
     {
-      title: "Courses",
-      url: "#",
-      icon: IconListDetails,
+      title: "DR List",
+      url: "/dashboard/dr-list",
+      icon: IconTruck,
     },
     {
-      title: "Students",
-      url: "#",
-      icon: IconChartBar,
+      title: "Invoice Update",
+      url: "/dashboard/invoice-update",
+      icon: IconFileInvoice,
     },
     {
-      title: "Programs",
-      url: "#",
-      icon: IconFolder,
-    },
-    {
-      title: "Faculty",
-      url: "#",
-      icon: IconUsers,
+      title: "New Parts Confirmation",
+      url: "/dashboard/new-parts",
+      icon: IconFileCheck,
     },
   ],
   navClouds: [
     {
-      title: "Enrollments",
-      icon: IconFileDescription,
+      title: "Reports",
+      icon: IconReport,
       isActive: true,
       url: "#",
       items: [
         {
-          title: "New Applications",
-          url: "#",
+          title: "DR Status Report",
+          url: "/dashboard/reports/dr-status",
         },
         {
-          title: "Processing",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Assessments",
-      icon: IconFileWord,
-      url: "#",
-      items: [
-        {
-          title: "Pending Review",
-          url: "#",
-        },
-        {
-          title: "Completed",
-          url: "#",
+          title: "DR Itemwise Report",
+          url: "/dashboard/reports/dr-itemwise",
         },
       ],
     },
     {
-      title: "Resources",
-      icon: IconFileAi,
+      title: "Quality Info",
+      icon: IconAlertCircle,
       url: "#",
       items: [
         {
-          title: "Learning Materials",
-          url: "#",
+          title: "Rejection Report",
+          url: "/dashboard/quality/rejections",
         },
         {
-          title: "Training Guides",
-          url: "#",
+          title: "Warranty Rejection",
+          url: "/dashboard/quality/warranty",
         },
       ],
     },
@@ -133,19 +111,19 @@ const data = {
   ],
   documents: [
     {
-      name: "Course Catalog",
+      name: "MRP Schedules",
       url: "#",
-      icon: IconDatabase,
+      icon: IconChartBar,
     },
     {
-      name: "Student Reports",
+      name: "Vendor Rating",
       url: "#",
       icon: IconReport,
     },
     {
-      name: "Assessment Tools",
+      name: "Policy & Guidelines",
       url: "#",
-      icon: IconFileWord,
+      icon: IconReceipt,
     },
   ],
 }
@@ -160,9 +138,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <a href="#">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">TAFE</span>
+              <a href="/dashboard" className="flex items-center gap-2">
+                <Image 
+                  src="https://www.tafe.com/img/TAFE-65-LOGO.webp" 
+                  alt="TAFE Logo" 
+                  width={32} 
+                  height={32}
+                  className="!size-8"
+                />
+                <span className="text-base font-semibold">TAFE Supplier Portal</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -170,6 +154,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
+        <NavCollapsible items={data.navClouds} />
         <NavDocuments items={data.documents} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>

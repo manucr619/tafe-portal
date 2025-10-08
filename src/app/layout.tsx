@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TAFE Portal - Vocational Education & Training",
-  description: "TAFE Portal - Comprehensive dashboard for vocational education, course management, and student analytics",
+  title: "TAFE Supplier Portal",
+  description: "TAFE Supplier Portal - Delivery Request Management, Invoice Processing, and Quality Control System",
+  icons: {
+    icon: "https://www.tafe.com/img/favicon.ico",
+    shortcut: "https://www.tafe.com/img/favicon.ico",
+  },
 };
 
 export default function RootLayout({
