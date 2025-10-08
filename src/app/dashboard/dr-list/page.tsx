@@ -14,14 +14,16 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Checkbox } from "@/components/ui/checkbox"
 import { deliveryRequests, getStatusColor } from "../mock-data"
-import { IconPrinter, IconFileDownload, IconSearch } from "@tabler/icons-react"
+import { IconPrinter, IconFileDownload, IconSearch, IconSparkles } from "@tabler/icons-react"
 import { useState } from "react"
+import { AISummaryDialog } from "@/components/ai-summary-dialog"
 
 export default function DRListPage() {
   const [selectedRows, setSelectedRows] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [plantFilter, setPlantFilter] = useState<string>("all");
+  const [showAISummary, setShowAISummary] = useState(false);
 
   // Filter DRs based on search and filters
   const filteredDRs = deliveryRequests.filter((dr) => {
@@ -92,11 +94,20 @@ export default function DRListPage() {
           <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6 px-4 lg:px-6">
               {/* Page Header */}
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tight">DR List</h1>
-                <p className="text-muted-foreground">
-                  View and manage your delivery requests. Print DRs or export data.
-                </p>
+              <div className="flex items-start justify-between">
+                <div className="space-y-2">
+                  <h1 className="text-3xl font-bold tracking-tight">DR List</h1>
+                  <p className="text-muted-foreground">
+                    View and manage your delivery requests. Print DRs or export data.
+                  </p>
+                </div>
+                <Button 
+                  onClick={() => setShowAISummary(true)}
+                  className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                >
+                  <IconSparkles className="mr-2 h-4 w-4" />
+                  AI Summary
+                </Button>
               </div>
 
               {/* Filters and Actions */}
@@ -261,6 +272,13 @@ export default function DRListPage() {
           </div>
         </div>
       </SidebarInset>
+
+      {/* AI Summary Dialog */}
+      <AISummaryDialog 
+        open={showAISummary}
+        onOpenChange={setShowAISummary}
+        deliveryRequests={filteredDRs}
+      />
     </SidebarProvider>
   )
 }
